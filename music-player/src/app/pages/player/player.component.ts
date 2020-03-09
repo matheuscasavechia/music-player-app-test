@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/Auth/auth.service';
 
 @Component({
   selector: 'app-player',
@@ -10,6 +11,9 @@ export class PlayerComponent {
     { name: "First Song", artist: "Inder" },
     { name: "Second Song", artist: "You" }
   ];
+  constructor(public Auth: AuthService) {
+    // handle this
+  }
   state;
   currentFile: any = {};
 
@@ -19,5 +23,9 @@ export class PlayerComponent {
   isLastPlaying() {
     return true;
   }
+  
+  login() {
+    const user = this.Auth.login();
+  };
 
 }
